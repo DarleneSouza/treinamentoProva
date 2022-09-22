@@ -9,6 +9,10 @@ public class ItenVenda {
 		this.produto = produto;
 	}
 	
+	public int getQuantidade() {
+		return quantidade;
+	}
+
 	public double subtotal() {
 		return produto.getPreco() * quantidade;
 	}
