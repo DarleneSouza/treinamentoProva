@@ -14,6 +14,12 @@ public class Venda {
 		this.data = data;
 		this.hora = hora;
 		lista = new ArrayList<ItenVenda>();
+	} 
+	
+	public ItenVenda criarItenVenda(int quantidade,String descricao,double preco) {
+		ItenVenda itenVenda = new ItenVenda(quantidade);
+		itenVenda.criarProduto(descricao,preco);
+		return itenVenda;
 	}
 	
 	public Date getData() {
@@ -32,9 +38,14 @@ public class Venda {
 		this.hora = hora;
 	}
 
-	public ArrayList<ItenVenda> getLista() {
-		return lista;
+	public ArrayList<String> getLista() {
+		ArrayList<String> listaString = new ArrayList<>();
+		for(ItenVenda iten : lista) {
+			listaString.add("produto: " + iten.getProduto().getDescricao() + " qtd: " + iten.getQuantidade()+ " + " + "preco R$: " + iten.getProduto().getPreco() + "\n"+ "subtotal: " + iten.subtotal());
+		}
+		return listaString;
 	}
+	
 
 	public void setLista(ArrayList<ItenVenda> lista) {
 		this.lista = lista;
@@ -49,8 +60,9 @@ public class Venda {
 		
 	}
 	
-	public void adicona(ItenVenda itenVenda) {
-		lista.add(itenVenda);
+	public void adicona(int quantidade, String descricao, double preco) {
+		
+		lista.add(criarItenVenda(quantidade,descricao,preco));
 		
 	}
 	
