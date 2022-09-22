@@ -4,9 +4,12 @@ public class ItenVenda {
 	private int quantidade;
 	private Produto produto;
 
-	public ItenVenda(int quantidade, Produto produto) {
+	public ItenVenda(int quantidade) {
 		this.quantidade = quantidade;
-		this.produto = produto;
+	}
+	
+	public void criarProduto(String descricao, double preco) {
+		produto = new Produto(descricao, preco);
 	}
 	
 	public Produto getProduto() {
